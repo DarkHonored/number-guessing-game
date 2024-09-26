@@ -2,9 +2,7 @@ let targetNumber;
 let attempts = 0;
 let maxNumber;
 
-const userName = "Durid"; // Replace "Durid" with your name
-document.getElementById("greeting").innerText = `Welcome, ${userName}!`; // Display user's name
-
+// Event listeners for difficulty buttons
 document.getElementById("easy").addEventListener("click", () => {
     startGame(10);
 });
@@ -19,6 +17,7 @@ document.getElementById("hard").addEventListener("click", () => {
 
 document.getElementById("submitGuess").addEventListener("click", checkGuess);
 
+// Start the game with the selected maximum number
 function startGame(max) {
     maxNumber = max;
     targetNumber = Math.floor(Math.random() * max) + 1; // Random number between 1 and max
@@ -29,12 +28,13 @@ function startGame(max) {
     document.getElementById("message").innerText = `Guess a number between 1 and ${max}`;
 }
 
+// Check the player's guess
 function checkGuess() {
     const guess = Number(document.getElementById("guessInput").value);
     attempts++;
 
     if (guess === targetNumber) {
-        document.getElementById("message").innerText = `Congratulations, ${userName}! You guessed the number ${targetNumber} in ${attempts} attempts!`;
+        document.getElementById("message").innerText = `Congratulations! You guessed the number ${targetNumber} in ${attempts} attempts!`;
         resetGame();
     } else if (guess < targetNumber) {
         document.getElementById("message").innerText = "Too low! Try again.";
@@ -45,6 +45,7 @@ function checkGuess() {
     document.getElementById("guessInput").value = ""; // Clear input field
 }
 
+// Reset the game after a win
 function resetGame() {
     document.getElementById("guessInput").disabled = true;
     document.getElementById("submitGuess").disabled = true;
