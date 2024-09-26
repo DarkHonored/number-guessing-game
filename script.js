@@ -12,6 +12,7 @@ document.getElementById("startGame").addEventListener("click", () => {
         document.getElementById("user-input").style.display = "none";
         document.getElementById("gameArea").style.display = "block";
         startGame(10); // Start with easy level
+        document.getElementById("backgroundMusic").play(); // Play background music
     } else {
         alert("Please enter your name!");
     }
@@ -93,6 +94,7 @@ function resetGame() {
     clearInterval(timer);
     document.getElementById("leaderboard").style.display = "block";
     displayLeaderboard();
+    document.getElementById("backgroundMusic").pause(); // Pause music on reset
 }
 
 function updateLeaderboard(score) {
