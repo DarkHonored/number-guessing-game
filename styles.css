@@ -5,6 +5,7 @@ body {
     background-color: #f0f8ff; /* Light background color */
     background-image: linear-gradient(to right, #f0f8ff, #add8e6); /* Gradient effect */
     color: #333; /* Text color */
+    overflow: hidden; /* Prevent scrollbars on small screens */
 }
 
 #footer {
@@ -59,4 +60,27 @@ input {
 
 #hintMessage {
     color: blue; 
+}
+
+/* Help section */
+#help {
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    z-index: 10; /* Ensure it's on top */
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+    body {
+        padding: 10px; /* Less padding on small screens */
+    }
+    button {
+        width: 100%; /* Full width buttons on small screens */
+    }
 }

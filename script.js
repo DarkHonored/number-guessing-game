@@ -23,6 +23,18 @@ document.getElementById("hard").addEventListener("click", () => startGame(100));
 
 document.getElementById("submitGuess").addEventListener("click", checkGuess);
 document.getElementById("resetGame").addEventListener("click", resetGame);
+document.getElementById("helpButton").addEventListener("click", () => {
+    document.getElementById("help").style.display = "block";
+});
+document.getElementById("closeHelp").addEventListener("click", () => {
+    document.getElementById("help").style.display = "none";
+});
+document.getElementById("allTime").addEventListener("click", displayLeaderboard);
+document.getElementById("daily").addEventListener("click", () => {
+    // Implement daily leaderboard logic if desired
+    alert("Daily leaderboard not implemented yet.");
+});
+document.getElementById("shareButton").addEventListener("click", shareScore);
 
 function startGame(max) {
     maxNumber = max;
@@ -47,6 +59,7 @@ function checkGuess() {
 
     if (guess === targetNumber) {
         clearInterval(timer);
+        document.getElementById("winSound").play();
         alert(`Congratulations, ${userName}! You guessed the number ${targetNumber} in ${attempts} attempts and ${elapsedTime} seconds!`);
         updateLeaderboard(calculateScore());
         resetGame();
@@ -86,6 +99,7 @@ function updateLeaderboard(score) {
     scores.push({ name: userName, score: score });
     scores.sort((a, b) => b.score - a.score);
     if (scores.length > 5) scores.pop(); // Keep only top 5 scores
+    document.getElementById("shareButton").style.display = "block"; // Show share button
 }
 
 function displayLeaderboard() {
@@ -100,4 +114,11 @@ function displayLeaderboard() {
 
 function calculateScore() {
     return Math.max(100 - attempts * 10 - elapsedTime, 0); // Score calculation logic
+}
+
+function shareScore() {
+    const scoreMessage = `I scored ${calculateScore()} in the Number Guessing Game! Can you beat me?`;
+    const url = window.location.href; // Current URL for sharing
+    const shareText = encodeURIComponent(scoreMessage + ' ' + url);
+    window.open(`https://twitter.com/intent/tweet?text=${shareText}`, '_blank'); // Sharing via Twitter
 }

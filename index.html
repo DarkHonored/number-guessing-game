@@ -13,11 +13,17 @@
         <input type="text" id="userName" placeholder="Enter your name">
         <button id="startGame">Start Game</button>
     </div>
+    <div id="help" style="display: none;">
+        <h2>How to Play</h2>
+        <p>Guess a number based on the selected difficulty level. Try to guess the number in the fewest attempts!</p>
+        <button id="closeHelp">Close</button>
+    </div>
     <div id="gameArea" style="display: none;">
         <div>
             <button id="easy">Easy</button>
             <button id="medium">Medium</button>
             <button id="hard">Hard</button>
+            <button id="helpButton">Help</button>
         </div>
         <p id="message"></p>
         <input type="number" id="guessInput" placeholder="Enter your guess" disabled>
@@ -31,8 +37,13 @@
     </div>
     <div id="leaderboard" style="display: none;">
         <h2>Leaderboard</h2>
+        <button id="allTime">All Time</button>
+        <button id="daily">Daily</button>
         <ol id="scoreList"></ol>
     </div>
+    <button id="shareButton" style="display: none;">Share Your Score</button>
+    <audio id="winSound" src="win.mp3"></audio>
+    <audio id="loseSound" src="lose.mp3"></audio>
     <script src="script.js"></script>
 </body>
 </html>
