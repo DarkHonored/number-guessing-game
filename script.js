@@ -2,9 +2,8 @@ let targetNumber;
 let attempts = 0;
 let maxNumber;
 
-const userName = "Durid"; // Change this to your name
-
-document.getElementById("greeting").innerText = `Welcome, ${userName}!`; // Display your name
+const userName = "Durid"; // Replace "Durid" with your name
+document.getElementById("greeting").innerText = `Welcome, ${userName}!`; // Display user's name
 
 document.getElementById("easy").addEventListener("click", () => {
     startGame(10);
@@ -28,10 +27,6 @@ function startGame(max) {
     document.getElementById("guessInput").disabled = false;
     document.getElementById("submitGuess").disabled = false;
     document.getElementById("message").innerText = `Guess a number between 1 and ${max}`;
-    
-    // Debugging logs
-    console.log(`New Game Started: Guess a number between 1 and ${max}`);
-    console.log(`Target Number: ${targetNumber}`); // Log the target number for debugging
 }
 
 function checkGuess() {
