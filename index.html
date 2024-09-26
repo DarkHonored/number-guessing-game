@@ -8,16 +8,30 @@
 </head>
 <body>
     <h1>Number Guessing Game</h1>
-    <div id="footer">Made by Durid Yasser</div> <!-- Footer with your name -->
-    <div>
-        <button id="easy">Easy</button>
-        <button id="medium">Medium</button>
-        <button id="hard">Hard</button>
+    <div id="footer">Made by Durid Yasser</div>
+    <div id="user-input">
+        <input type="text" id="userName" placeholder="Enter your name">
+        <button id="startGame">Start Game</button>
     </div>
-    <div>
+    <div id="gameArea" style="display: none;">
+        <div>
+            <button id="easy">Easy</button>
+            <button id="medium">Medium</button>
+            <button id="hard">Hard</button>
+        </div>
         <p id="message"></p>
         <input type="number" id="guessInput" placeholder="Enter your guess" disabled>
         <button id="submitGuess" disabled>Submit Guess</button>
+        <button id="resetGame" style="display: none;">Reset Game</button>
+        <div id="scoreArea" style="display: none;">
+            <p id="scoreMessage"></p>
+            <p id="timerMessage"></p>
+            <p id="hintMessage"></p>
+        </div>
+    </div>
+    <div id="leaderboard" style="display: none;">
+        <h2>Leaderboard</h2>
+        <ol id="scoreList"></ol>
     </div>
     <script src="script.js"></script>
 </body>

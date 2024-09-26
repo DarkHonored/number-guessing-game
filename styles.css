@@ -1,28 +1,62 @@
 body {
-    font-family: Arial, sans-serif; /* Set a default font */
-    text-align: center; /* Center align text */
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 20px;
+    background-color: #f0f8ff; /* Light background color */
+    background-image: linear-gradient(to right, #f0f8ff, #add8e6); /* Gradient effect */
+    color: #333; /* Text color */
 }
 
 #footer {
     position: absolute;
-    top: 10px; /* Adjust as needed */
-    right: 10px; /* Adjust as needed */
-    font-size: 16px; /* Adjust font size as needed */
-    color: black; /* Change color if desired */
+    top: 10px; 
+    right: 10px; 
+    font-size: 16px; 
+    color: black; 
 }
 
 h1 {
-    margin-bottom: 20px; /* Add some space below the title */
+    margin-bottom: 20px; 
+    color: #4682b4; /* Change title color */
 }
 
 button {
-    margin: 5px; /* Space between buttons */
-    padding: 10px 20px; /* Padding for buttons */
-    font-size: 16px; /* Font size for buttons */
+    margin: 5px; 
+    padding: 10px 20px; 
+    font-size: 16px; 
+    background-color: #4682b4; /* Button color */
+    color: white; /* Button text color */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s; /* Smooth color transition */
+}
+
+button:hover {
+    background-color: #4169e1; /* Darker blue on hover */
 }
 
 input {
-    margin-top: 10px; /* Space above the input field */
-    padding: 10px; /* Padding for input field */
-    font-size: 16px; /* Font size for input field */
+    margin-top: 10px; 
+    padding: 10px; 
+    font-size: 16px; 
+    border: 1px solid #ccc; /* Input border */
+    border-radius: 5px; /* Rounded corners */
+}
+
+/* Game area and leaderboard styling */
+#gameArea, #leaderboard {
+    margin-top: 20px;
+    padding: 20px; /* Padding inside the game area */
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Shadow effect */
+}
+
+#scoreArea {
+    margin-top: 10px; 
+}
+
+#hintMessage {
+    color: blue; 
 }
