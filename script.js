@@ -2,6 +2,10 @@ let targetNumber;
 let attempts = 0;
 let maxNumber;
 
+const userName = "Durid"; // Change this to your name
+
+document.getElementById("greeting").innerText = `Welcome, ${userName}!`; // Display your name
+
 document.getElementById("easy").addEventListener("click", () => {
     startGame(10);
 });
@@ -35,7 +39,7 @@ function checkGuess() {
     attempts++;
 
     if (guess === targetNumber) {
-        document.getElementById("message").innerText = `Congratulations! You guessed the number ${targetNumber} in ${attempts} attempts!`;
+        document.getElementById("message").innerText = `Congratulations, ${userName}! You guessed the number ${targetNumber} in ${attempts} attempts!`;
         resetGame();
     } else if (guess < targetNumber) {
         document.getElementById("message").innerText = "Too low! Try again.";
