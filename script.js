@@ -24,6 +24,10 @@ function startGame(max) {
     document.getElementById("guessInput").disabled = false;
     document.getElementById("submitGuess").disabled = false;
     document.getElementById("message").innerText = `Guess a number between 1 and ${max}`;
+    
+    // Debugging logs
+    console.log(`New Game Started: Guess a number between 1 and ${max}`);
+    console.log(`Target Number: ${targetNumber}`); // Log the target number for debugging
 }
 
 function checkGuess() {
