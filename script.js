@@ -1,49 +1,48 @@
-let randomNumber = Math.floor(Math.random() * 100) + 1;
+let targetNumber;
 let attempts = 0;
+let maxNumber;
+
+document.getElementById("easy").addEventListener("click", () => {
+    startGame(10);
+});
+
+document.getElementById("medium").addEventListener("click", () => {
+    startGame(50);
+});
+
+document.getElementById("hard").addEventListener("click", () => {
+    startGame(100);
+});
+
+document.getElementById("submitGuess").addEventListener("click", checkGuess);
+
+function startGame(max) {
+    maxNumber = max;
+    targetNumber = Math.floor(Math.random() * max) + 1; // Random number between 1 and max
+    attempts = 0;
+
+    document.getElementById("guessInput").disabled = false;
+    document.getElementById("submitGuess").disabled = false;
+    document.getElementById("message").innerText = `Guess a number between 1 and ${max}`;
+}
 
 function checkGuess() {
-    const userGuess = parseInt(document.getElementById('guessInput').value);
-    const feedback = document.getElementById('feedback');
+    const guess = Number(document.getElementById("guessInput").value);
     attempts++;
 
-    if (userGuess === randomNumber) {
-        feedback.textContent = `Congrats! You guessed it in ${attempts} tries!`;
-        feedback.style.color = 'green';
-    } else if (userGuess > randomNumber) {
-        feedback.textContent = `Your guess of ${userGuess} is too high! Try a lower number.`;
-        feedback.style.color = 'red';
+    if (guess === targetNumber) {
+        document.getElementById("message").innerText = `Congratulations! You guessed the number ${targetNumber} in ${attempts} attempts!`;
+        resetGame();
+    } else if (guess < targetNumber) {
+        document.getElementById("message").innerText = "Too low! Try again.";
     } else {
-        feedback.textContent = `Your guess of ${userGuess} is too low! Try a higher number.`;
-        feedback.style.color = 'red';
+        document.getElementById("message").innerText = "Too high! Try again.";
     }
+
+    document.getElementById("guessInput").value = ""; // Clear input field
 }
 
 function resetGame() {
-    randomNumber = Math.floor(Math.random() * 100) + 1;
-    attempts = 0;
-    document.getElementById('feedback').textContent = '';
-    document.getElementById('guessInput').value = '';
-}
-
-let maxNumber;
-let attemptsLeft;
-
-function setDifficulty(level) {
-  if (level === 'easy') {
-    maxNumber = 100;
-    attemptsLeft = 10;
-  } else if (level === 'medium') {
-    maxNumber = 1000;
-    attemptsLeft = 7;
-  } else if (level === 'hard') {
-    maxNumber = 10000;
-    attemptsLeft = 5;
-  }
-  startGame();
-}
-
-function startGame() {
-  let secretNumber = Math.floor(Math.random() * maxNumber) + 1;
-  // Add logic to start the game with the chosen difficulty
-  console.log(`Secret Number: ${secretNumber}, Attempts Left: ${attemptsLeft}`);
+    document.getElementById("guessInput").disabled = true;
+    document.getElementById("submitGuess").disabled = true;
 }
